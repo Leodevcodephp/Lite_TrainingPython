@@ -1,20 +1,18 @@
-num = 123456789
-strNum =  str(num)
-sum = 0
+class Ex1:
+    ans =[]
+    def Sequence(self, s, ans, path = ''):
+        
+        for i in range(len(s)):
+            self.Sequence(s[i+1:],ans + int(s[:i+1]), path + " + " +s[:i+1])
+            self.Sequence(s[i+1:],ans - int(s[:i+1]), path + " - " +s[:i+1])
 
-for i in range(0,9,1):
-    if i<3:
-        sum += int(strNum[i])
-    if i == 3:
-        sum -= int(strNum[i])
-      
-    if 4<=i & i<= 5:
-         sum += int(strNum[i])
-         
-    if 6<i & i<8:
-        sum = sum + int(strNum[6:8]) 
-    
-    if i==8: 
-         sum += int(strNum[i])
-         
-print(sum)
+        if len(s) ==0 & ans ==100:
+            return self.ans.append(path)
+
+cal = Ex1()
+num = 123456789
+numStr =  str(num)
+cal.Sequence(numStr, 0)
+for i in cal.ans:
+    print(i)
+
