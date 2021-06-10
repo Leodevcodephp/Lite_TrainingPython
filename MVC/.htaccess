@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteBase "localhost/MVC/"
+
+RewriteRule "^(.*)$" "index.php?controller=PostNews&action=$1 [R=301,L]"
+RewriteRule "^(.*)/([1-9]+)$" "index.php?controller=PostNews&action=$1&id=$2 [R=301,L]"
+
